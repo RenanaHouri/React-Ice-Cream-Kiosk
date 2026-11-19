@@ -98,7 +98,7 @@ const visibleFlavors = showOnlyAvailable? flavors.filter(flavor => !flavor.isSol
             className={`flavor-card ${flavor.isSoldOut ? "sold-out" : ""}`}
           >
             <h2>{flavor.name}</h2>
-            {flavor.isSoldOut && <p>Sold Out</p>}
+            {flavor.isSoldOut && <p className="sold-out-badge">Sold Out</p>}
             <p>Scoops: {flavor.scoopsSelected}</p>
             <button
               disabled={flavor.isSoldOut || totalScoops >= scoopLimit}
@@ -115,7 +115,7 @@ const visibleFlavors = showOnlyAvailable? flavors.filter(flavor => !flavor.isSol
    <p>Total Scoops: {totalScoops}</p>
    <p>Total Price: {totalPrice}</p>
    </div>
-    {totalScoops >= scoopLimit && <p>Scoop limit reached!</p>}
+    {totalScoops >= scoopLimit && (<p className="notice">Scoop limit reached!</p>)}
     {totalScoops === 0 && <p>Your order is empty</p>}
   </div>
 );
